@@ -1,3 +1,7 @@
+html {
+	font-family: 'Indie Flower', cursive;
+}
+
 body {
 	max-width: 500px; 
 	margin: auto; 

@@ -3,6 +3,7 @@
 <head>
 	<title>Cat or Dog</title>
 	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+	<link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet">
 </head>
 <body>
 	
@@ -10,7 +11,7 @@
 <img src="{{url_for('static', filename='images/logo.jpg')}}" id='logo'>
 
 <form action="/" method="POST" id='form'>
-	<p><em>Choose images from the test dir only!</em></p>
+	<p><em>Upload and choose images from the test dir only!</em></p>
 	<input type="file" name="img" required accept="image/*">
 	<input type="submit" value="Check">
 </form>
@@ -22,8 +23,13 @@
 <div class='item'>
 	<fieldset>
 		<legend>Top result</legend>
-		<h1>{{ result[0][0][:3].upper() }}</h1>
+		<h1>It's a {{ result[0][0][:3].upper() }}</h1>
 		<h2><em>Probability: {{ result[0][1] }}</em></h2>
+		{% if result[0][0] == 'dogs' %}
+		<img src="{{url_for('static', filename='images/dog.jpg')}}" alt="">
+		{% elif result[0][0] == 'cats' %}
+		<img src="{{url_for('static', filename='images/cat.jpg')}}" alt="">
+		{% endif %}
 	</fieldset>
 </div>
 
