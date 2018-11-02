@@ -1,0 +1,23 @@
+body {
+	max-width: 500px; 
+	margin: auto; 
+	border: 1px solid black; 
+	padding: 25px;
+}
+
+#logo {
+	width: 130px;
+}
+
+#form {
+	padding-top: 25px;
+}
+
+.main {
+	width: 450px; 
+	padding-top: 25px;
+}
+
+.item {
+	padding-top: 25px;
+}

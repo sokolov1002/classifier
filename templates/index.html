@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cat or Dog</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+	
+<h1>Cat or Dog image classifier</h1>
+<img src="{{url_for('static', filename='images/logo.jpg')}}" id='logo'>
+
+<form action="/" method="POST" id='form'>
+	<p><em>Choose images from the test dir only!</em></p>
+	<input type="file" name="img" required accept="image/*">
+	<input type="submit" value="Check">
+</form>
+
+{% if result %}
+
+<div class='main'>
+
+<div class='item'>
+	<fieldset>
+		<legend>Top result</legend>
+		<h1>{{ result[0][0][:3].upper() }}</h1>
+		<h2><em>Probability: {{ result[0][1] }}</em></h2>
+	</fieldset>
+</div>
+
+
+<div class='item'>
+	<details>
+		<summary>Check the other option</summary>
+		<fieldset>
+			<h1>{{ result[1][0][:3].upper() }}</h1>
+			<h2><em>Probability: {{ result[1][1] }}</em></h2>
+		</fieldset>
+
+	</details>
+</div>	
+</div>
+
+
+{% endif %}
+
+</body>
+</html>
